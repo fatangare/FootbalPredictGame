@@ -1,0 +1,270 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment" >
+
+  
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"   
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#fff"
+     android:padding="10dp"
+     >
+     
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".2"   
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:layout_marginBottom="10dp"
+     >
+
+      <ImageView
+          android:id="@+id/imgTeam1"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight=".32"
+          android:src="@drawable/mi"
+          android:layout_marginRight="5dp" 
+          android:scaleType="fitCenter"/>
+      
+	  <TextView
+	    android:id="@+id/lblVs"
+	    android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight=".16"  
+		android:layout_gravity="center_horizontal" 
+		android:gravity="center"
+	    android:text="VS"
+	    android:textColor="#DE4C33"
+	    android:background="#FFF"
+	    android:textAppearance="?android:attr/textAppearanceLarge" />
+      
+      <ImageView
+          android:id="@+id/imgTeam2"
+          android:layout_height="match_parent"
+          android:layout_width="0dp"
+          android:layout_weight=".32"
+          android:src="@drawable/csk"
+          android:scaleType="fitCenter" />
+
+      <!-- ProgressBar
+          android:id="@+id/progressBar1"
+          style="?android:attr/progressBarStyleLarge"
+          android:layout_width="wrap_content"
+          android:layout_weight=".20"
+          android:layout_height="wrap_content" / -->
+
+  </LinearLayout>      
+  <TextView
+    android:id="@+id/lblLocation"
+    android:layout_width="match_parent"
+	android:layout_height="0dp"
+	android:layout_weight=".05"  
+	android:layout_gravity="center_horizontal" 
+	android:gravity="center_horizontal"
+    android:text="Abu Dhabi, UAE"
+    android:textColor="#34B2E2"
+    android:textAppearance="?android:attr/textAppearanceSmall" />
+      
+   <TextView
+    android:id="@+id/lblDateTime"
+    android:layout_width="match_parent"
+	android:layout_height="0dp"
+	android:layout_weight=".05"
+	android:layout_gravity="center_horizontal"  
+	android:gravity="center_horizontal" 
+	android:textColor="#34B2E2"
+    android:text="12/Apr/2014 06:30 PM IST"
+    android:textAppearance="?android:attr/textAppearanceSmall" />
+   
+    <ImageView
+    android:id="@+id/horzline"
+    android:src="@drawable/line"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.01"	
+    android:background="#34B2E2"
+    />
+      
+   <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".1"   
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:layout_marginTop="10dp"
+     >
+    <TextView
+    android:id="@+id/lblToss"
+    android:layout_width="0dp"
+	android:layout_height="match_parent"
+	android:layout_weight=".33"  
+	android:layout_gravity="center_horizontal" 
+	android:gravity="center"
+    android:text="Brazil Goals"
+    android:textColor="#fff"
+    android:background="#34B2E2"
+    android:layout_marginRight="5dp"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+    android:id="@+id/lblMatch"
+    android:layout_width="0dp"
+	android:layout_height="match_parent"
+	android:layout_weight=".34"  
+	android:layout_gravity="center_horizontal" 
+	android:gravity="center"
+    android:text="Croatia Goals"
+    android:textColor="#fff"
+    android:background="#DE4C33"
+    android:layout_marginRight="5dp"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+    android:id="@+id/lblFirstBatting"
+    android:layout_width="0dp"
+	android:layout_height="match_parent"
+	android:layout_weight=".33"  
+	android:layout_gravity="center_horizontal" 
+	android:gravity="center"
+    android:text="First Goal"
+    android:textColor="#fff"
+    android:background="#7EAE04"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+  </LinearLayout>    
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".2"   
+    android:orientation="horizontal"
+    android:weightSum="1"
+     >
+
+      <ImageView
+          android:id="@+id/imgToss"
+          android:layout_height="match_parent"
+          android:layout_width="0dp"
+          android:layout_weight=".33"
+          android:src="@drawable/mi"
+          android:background="#34B2E2"
+          android:scaleType="fitXY"
+          android:padding="1dp"
+          android:layout_marginRight="5dp"
+           />
+     
+      <ImageView
+          android:id="@+id/imgMatch"
+          android:layout_height="match_parent"
+          android:layout_width="0dp"
+          android:layout_weight=".34"
+          android:src="@drawable/csk"
+          android:background="#DE4C33"
+          android:scaleType="fitXY"
+          android:padding="1dp"
+          android:layout_marginRight="5dp" 
+           />
+      
+      <ImageView
+          android:id="@+id/imgFirstBatting"
+          android:layout_height="match_parent"
+          android:layout_width="0dp"
+          android:layout_weight=".33"
+          android:src="@drawable/mi" 
+          android:background="#7EAE04"
+          android:scaleType="fitXY"
+          android:padding="1dp"
+           />
+   </LinearLayout>  
+   
+   <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".1"   
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:layout_marginTop="5dp"
+     >
+    <TextView
+    android:id="@+id/lblSixes"
+    android:layout_width="0dp"
+	android:layout_height="match_parent"
+	android:layout_weight=".33"  
+	android:layout_gravity="center_horizontal" 
+	android:gravity="center"
+    android:text="Toss"
+    android:textColor="#fff"
+    android:background="#6C319D"
+    android:layout_marginRight="5dp"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+    android:id="@+id/lblFours"
+    android:layout_width="0dp"
+	android:layout_height="match_parent"
+	android:layout_weight=".34"  
+	android:layout_gravity="center_horizontal" 
+	android:gravity="center"
+    android:text="Fours"
+    android:textColor="#fff"
+    android:background="#3B6476"
+    android:layout_marginRight="5dp"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+    android:id="@+id/lblWickets"
+    android:layout_width="0dp"
+	android:layout_height="match_parent"
+	android:layout_weight=".33"  
+	android:layout_gravity="center_horizontal" 
+	android:gravity="center"
+    android:text="Wickets"
+    android:textColor="#fff"
+    android:background="#CC0001"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+  </LinearLayout>    
+  
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".2"   
+    android:orientation="horizontal"
+    android:weightSum="1"
+     >
+
+        <Spinner
+            android:id="@+id/spSixes"
+            android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight=".33"
+			android:layout_marginRight="5dp" 
+			android:background="#6C319D" />
+    
+        
+        <Spinner
+            android:id="@+id/spFours"
+            android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight=".34" 
+			android:layout_marginRight="5dp"
+			android:background="#3B6476"  />
+        
+        
+        <Spinner
+            android:id="@+id/spWickets"
+            android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight=".33"  
+			android:background="#CC0001"  />
+     </LinearLayout>
+   
+</LinearLayout>
+    
+
+</FrameLayout>

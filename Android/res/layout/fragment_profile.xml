@@ -1,0 +1,98 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment" >
+
+  
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"   
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#1D3F62"
+     android:padding="10dp"
+     >
+        
+    
+          <EditText
+            android:id="@+id/txtFName"
+            android:layout_width="match_parent"            
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textColorHint="#DDDDDD"
+            android:background="#34B2E2"
+            android:padding="10dp"
+            android:hint="@string/fname"
+            android:singleLine="true" 
+            android:layout_marginBottom="2dp"/>
+        
+        <EditText
+            android:id="@+id/txtLName"
+            android:background="#34B2E2"            
+            android:textColor="#ffffff"
+            android:textColorHint="#DDDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lname"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:layout_marginBottom="2dp" />
+         
+        <EditText
+            android:id="@+id/txtMobile"
+            android:background="#34B2E2"            
+            android:textColor="#ffffff"
+            android:textColorHint="#DDDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="@string/mobile"
+            android:inputType="phone"
+            android:padding="10dp"
+            android:layout_marginBottom="2dp"
+             />
+
+        <EditText
+            android:id="@+id/txtEmail"
+            android:background="#34B2E2"            
+            android:textColor="#ffffff"
+            android:textColorHint="#DDDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:layout_marginBottom="2dp" />
+    
+
+        <EditText
+            android:id="@+id/txtCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#34B2E2"            
+            android:textColor="#ffffff"
+            android:textColorHint="#DDDDDD"
+            android:padding="10dp"
+            android:hint="@string/city"
+            android:singleLine="true"
+            android:layout_marginBottom="10dp"  />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/roundbutton"
+        android:textColor="#FFE5DD"
+        android:textColorHighlight="#FFFFFF"        
+        android:onClick="onUpdateProfileClicked"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/updateprofile" />
+    
+</LinearLayout>
+    
+
+</FrameLayout>

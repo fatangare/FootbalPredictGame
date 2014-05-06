@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#1D3F62" >
+
+        <!-- Header  Starts -->
+ 		<ImageView
+ 		    android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" 
+            android:layout_weight=".25"   
+            android:contentDescription="logo"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo" />     
+        <!-- Header Ends -->
+
+
+        <!-- Login Form  Start -->
+
+        <LinearLayout
+            android:id="@+id/loginform"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".70"
+            android:orientation="vertical"
+            android:padding="10dp" 
+            android:weightSum="1">
+
+            <!-- User Start -->
+
+            <EditText
+                android:id="@+id/user"
+                android:textColor="#ffffff"
+            	android:textColorHint="#DDDDDD"
+            	android:background="#34B2E2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="10dp"
+                android:hint="@string/prompt_user"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:layout_weight=".15"
+                android:layout_marginBottom="2dp"
+                android:singleLine="true" />
+            <!-- User Ends -->
+
+
+            <!-- Password Start -->
+
+            <EditText
+                android:id="@+id/password"
+                android:textColor="#ffffff"
+            	android:textColorHint="#DDDDDD"
+            	android:background="#34B2E2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="10dp"
+                android:hint="@string/prompt_password"
+                android:imeActionId="@+id/login"
+                android:imeActionLabel="@string/login_button"
+                android:imeOptions="actionUnspecified"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:layout_weight=".15"
+                android:singleLine="true" />
+            <!-- Password Ends -->
+
+
+            <!-- Remember Me Start -->
+
+            <CheckBox
+                android:id="@+id/remember_me"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:gravity="left|center_vertical"
+                android:text="@string/remember_me"
+                android:textColor="#fff"
+                android:background="#0b84aa"
+                android:layout_weight=".10"
+                android:textSize="15sp" />
+            <!-- Remember Me Ends -->
+            
+             <!-- Login Start -->
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".15"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="20dp"
+                android:onClick="attemptLogin"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/login_button"                
+                android:textSize="20sp"            
+                android:background="@drawable/roundbutton"
+        		android:textColor="#FFE5DD"
+        		android:textColorHighlight="#FFFFFF"  />
+            <!-- Login Ends -->
+            
+            <!-- Forgot Password Start -->
+
+            <Button
+                android:id="@+id/forgot_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.30"
+                android:layout_gravity="left|top"
+                android:gravity="center_horizontal|top"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#1D3F62"
+                android:onClick="onForgotPasswordClick"
+                android:text="@string/forgot_password"
+                android:textColor="#0b84aa"                
+                android:textSize="15sp" />
+            <!-- Forgot Password Ends -->
+            
+           
+            
+             <!-- Sigin Start -->
+            <Button
+                android:id="@+id/btnSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".15"
+                android:layout_gravity="center"
+                android:background="@drawable/roundbutton"
+                android:onClick="onSignInClicked"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:text="@string/signin"
+                android:textColor="#ffffff"
+                android:textSize="15sp" />
+            <!-- Signin Ends -->
+        </LinearLayout>
+        <!-- Login Form Ends -->
+
+
+        <!-- Footer Start -->
+
+          <TextView
+                android:id="@+id/footertip"      
+                android:layout_width="match_parent"
+                android:layout_height="0dp"  
+                android:layout_weight=".05"        
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/copyright"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+     
+        <!-- Footer Ends -->
+
+    </LinearLayout>
+
+</ScrollView>

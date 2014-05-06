@@ -1,0 +1,12 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtDrawerItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"   
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:textColor="#D6EBF3"    
+    android:background="#1D3F62"
+    android:textAppearance="?android:attr/textAppearanceSmall" />

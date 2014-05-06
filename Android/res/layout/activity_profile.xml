@@ -1,0 +1,112 @@
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"   
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#404040"
+     >
+        
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="0.70"
+        android:weightSum="1"
+        android:background="#C0C0C0"
+        android:padding="10dp"
+         >
+         
+          <EditText
+            android:id="@+id/txtFName"
+            android:layout_width="match_parent"
+            android:layout_weight="0.20"
+            android:layout_height="0dp"
+            android:background="#ffffff"
+            android:padding="10dp"
+            android:hint="@string/fname"
+            android:singleLine="true" 
+            android:layout_marginBottom="10dp"/>
+        
+        <EditText
+            android:id="@+id/txtLName"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_weight="0.20"
+            android:layout_height="0dp"
+            android:hint="@string/lname"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp" />
+         
+        <EditText
+            android:id="@+id/txtMobile"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.20"
+            android:singleLine="true"
+            android:hint="@string/mobile"
+            android:inputType="phone"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+             />
+
+        <EditText
+            android:id="@+id/txtEmail"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_weight="0.20"
+            android:layout_height="0dp"
+            android:singleLine="true"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp" />
+    
+
+        <EditText
+            android:id="@+id/txtCity"
+            android:layout_width="match_parent"
+            android:layout_weight="0.20"
+            android:layout_height="0dp"
+            android:background="#ffffff"
+            android:padding="10dp"
+            android:hint="@string/city"
+            android:singleLine="true" />
+	</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.30"
+        android:weightSum="1"
+        android:background="#C0C0C0"
+         >
+        
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:layout_weight="0.45"
+        android:background="@drawable/roundbutton"
+        android:onClick="onUpdateProfileClicked"
+        android:padding="10dp"
+        android:text="@string/updateprofile" />
+    
+    <Button
+        android:id="@+id/btnChange"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:layout_weight="0.55"
+        android:background="@drawable/roundbutton"
+        android:onClick="onChangeClicked"
+        android:padding="10dp"
+        android:text="@string/changepwd" />
+	</LinearLayout>
+</LinearLayout>
