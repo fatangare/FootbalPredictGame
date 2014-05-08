@@ -10,6 +10,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.footballpredictgame.R;
 import com.footballpredictgame.adapter.DrawerListAdapter;
@@ -25,13 +27,19 @@ import com.footballpredictgame.fragment.BetsFragment;
 import com.footballpredictgame.fragment.BetsFragment.OnBetsFragmentInteractionListener;
 import com.footballpredictgame.fragment.ChangePasswordFragment;
 import com.footballpredictgame.fragment.ChangePasswordFragment.OnChangePasswordFragmentInteractionListener;
+import com.footballpredictgame.fragment.GroupDialogFragment;
+import com.footballpredictgame.fragment.GroupDialogFragment.GroupDialogFragmentListener;
+import com.footballpredictgame.fragment.GroupsFragment;
+import com.footballpredictgame.fragment.HistoryFragment;
 import com.footballpredictgame.fragment.ProfileFragment;
 import com.footballpredictgame.fragment.ProfileFragment.OnProfileFragmentInteractionListener;
+import com.footballpredictgame.utiity.Constant;
 
 public class MainActivity extends FragmentActivity implements
 		OnProfileFragmentInteractionListener,
 		OnBetsFragmentInteractionListener,
-		OnChangePasswordFragmentInteractionListener, OnItemClickListener {
+		OnChangePasswordFragmentInteractionListener,
+		GroupDialogFragmentListener, OnItemClickListener {
 
 	private static final int BETHEADERINDEX = 1;
 	private int mGroupHeaderIndex;
@@ -141,18 +149,34 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	private void selectItem(int position) {
-		if (mDrawerListItemKeys.get(position) == DrawerListAdapter.BET_ITEM) {
+		if (mDrawerListItemKeys.get(position) == DrawerListAdapter.BET_ITEM
+				|| mDrawerListItemKeys.get(position) == DrawerListAdapter.GROUP_ITEM
+				|| mDrawerListItemKeys.get(position) == DrawerListAdapter.PROFILE_ITEM) {
+
+			if (mDrawerListItems.get(position).compareTo(
+					getString(R.string.drawer_item_addgroup)) == 0) {
+
+				// update selected item and title, then close the drawer
+				mDrawerList.setItemChecked(position, true);
+				mDrawerLayout.closeDrawer(mDrawerList);
+
+				FragmentManager fm = getSupportFragmentManager();
+				GroupDialogFragment groupDialog = new GroupDialogFragment();
+				groupDialog.show(fm, Constant.TAG);
+			}
+
 			// update the main content by replacing fragments
 			Fragment fragment = getFragment(position);
-			/*
-			 * Bundle args = new Bundle();
-			 * args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-			 * fragment.setArguments(args);
-			 */
+
 			if (fragment != null) {
-				FragmentManager fragmentManager = getSupportFragmentManager();
-				fragmentManager.beginTransaction()
-						.replace(R.id.content_frame, fragment).commit();
+				FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+						.beginTransaction();
+				fragmentTransaction.replace(R.id.content_frame, fragment);
+				if (!(fragment instanceof BetsFragment)) {
+					// it will add screen to home screen when back is pressed
+					fragmentTransaction.addToBackStack(null);
+				}
+				fragmentTransaction.commit();
 				// update selected item and title, then close the drawer
 				mDrawerList.setItemChecked(position, true);
 				mDrawerLayout.closeDrawer(mDrawerList);
@@ -171,9 +195,10 @@ public class MainActivity extends FragmentActivity implements
 				.equals(DrawerListAdapter.BET_ITEM)) {
 			if (mDrawerListItems.get(position).equals(
 					getString(R.string.drawer_item_history))) {
+				return new HistoryFragment();
 
 			} else if (mDrawerListItems.get(position).equals(
-					getString(R.string.drawer_item_history))) {
+					getString(R.string.drawer_item_rules))) {
 
 			} else {
 				mTitle = getString(R.string.drawer_item_bets);
@@ -184,7 +209,10 @@ public class MainActivity extends FragmentActivity implements
 
 		if (mDrawerListItemKeys.get(position).equals(
 				DrawerListAdapter.GROUP_ITEM)) {
-
+			if (mDrawerListItems.get(position).equals(
+					getString(R.string.drawer_item_viewallgroups))) {
+				return new GroupsFragment();
+			}
 		}
 
 		if (mDrawerListItemKeys.get(position).equals(
@@ -260,6 +288,8 @@ public class MainActivity extends FragmentActivity implements
 		mGroupHeaderIndex = mDrawerListItemKeys.size() - 1;
 		mDrawerListItemKeys.add(DrawerListAdapter.GROUP_ITEM);
 		mDrawerListItems.add(getString(R.string.drawer_item_addgroup));
+		mDrawerListItemKeys.add(DrawerListAdapter.GROUP_ITEM);
+		mDrawerListItems.add(getString(R.string.drawer_item_viewallgroups));
 
 		mDrawerListItemKeys.add(DrawerListAdapter.PROFILE_HEADER);
 		mDrawerListItems.add(getString(R.string.drawer_item_profile));
@@ -269,6 +299,12 @@ public class MainActivity extends FragmentActivity implements
 		mDrawerListItems.add(getString(R.string.drawer_item_changepwd));
 		mDrawerListItemKeys.add(DrawerListAdapter.PROFILE_ITEM);
 		mDrawerListItems.add(getString(R.string.drawer_item_logout));
+
+	}
+
+	@Override
+	public void onDismissGroupDialog(String groupId) {
+		Toast.makeText(this, groupId, Toast.LENGTH_LONG).show();
 
 	}
 }

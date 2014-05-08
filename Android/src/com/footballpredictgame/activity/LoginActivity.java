@@ -145,7 +145,7 @@ public class LoginActivity extends Activity implements NetworkRequestListener {
 	public void onResponse(Object obj) {
 		Utility.hideBusyDialog();
 		Log.v(Constant.TAG, "Login succes");
-		Model.setCurrentUserId((Integer) obj);
+		Model.setCurrentUserId((String) obj);
 		// if login is successful and 'remember me' is selected, store user
 		// details in shared preferences
 		UserAccountManager uam = new UserAccountManager(this);

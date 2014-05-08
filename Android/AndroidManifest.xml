@@ -39,20 +39,10 @@
             android:name="com.footballpredictgame.activity.RegisterActivity" 
             android:label="@string/title_activity_register"
             android:configChanges="orientation|screenSize" >
-        </activity>
-        <activity
-            android:name="com.footballpredictgame.activity.ProfileActivity"
-            android:label="@string/title_activity_profile"
-            android:configChanges="orientation|screenSize" >
-        </activity>
+        </activity>        
         <activity
             android:name="com.footballpredictgame.activity.ForgotPasswordActivity"
             android:label="@string/title_activity_forgot_password" 
-            android:configChanges="orientation|screenSize">
-        </activity>
-        <activity
-            android:name="com.footballpredictgame.activity.ChangePasswordActivity" 
-            android:label="@string/title_activity_change_password" 
             android:configChanges="orientation|screenSize">
         </activity>
         <activity

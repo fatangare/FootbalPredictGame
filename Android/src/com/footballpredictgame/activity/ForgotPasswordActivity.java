@@ -83,7 +83,7 @@ public class ForgotPasswordActivity extends Activity implements
 	public void onResponse(Object obj) {
 		Utility.hideBusyDialog();
 		Log.v(Constant.TAG, "Forgot pwd success");
-		Model.setCurrentUserId((Integer) obj);
+		Model.setCurrentUserId((String) obj);
 	}
 
 	/**

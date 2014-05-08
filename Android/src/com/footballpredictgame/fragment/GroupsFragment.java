@@ -4,13 +4,16 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.android.volley.VolleyError;
-import com.footballpredictgame.model.HistoryItem;
+import com.footballpredictgame.R;
+import com.footballpredictgame.model.Group;
 import com.footballpredictgame.network.NetworkRequest;
 import com.footballpredictgame.network.NetworkRequestListener;
 import com.footballpredictgame.utiity.Constant;
@@ -23,13 +26,13 @@ import com.footballpredictgame.utiity.Utility;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class HistoryFragment extends ListFragment implements
+public class GroupsFragment extends ListFragment implements
 		NetworkRequestListener {
 
-	private List<HistoryItem> mHistory;
+	private List<Group> mGroups;
 
-	public static HistoryFragment newInstance() {
-		HistoryFragment fragment = new HistoryFragment();
+	public static GroupsFragment newInstance() {
+		GroupsFragment fragment = new GroupsFragment();
 		return fragment;
 	}
 
@@ -37,7 +40,7 @@ public class HistoryFragment extends ListFragment implements
 	 * Mandatory empty constructor for the fragment manager to instantiate the
 	 * fragment (e.g. upon screen orientation changes).
 	 */
-	public HistoryFragment() {
+	public GroupsFragment() {
 	}
 
 	@Override
@@ -54,8 +57,8 @@ public class HistoryFragment extends ListFragment implements
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onViewCreated(view, savedInstanceState);
-		// Utility.showBusyDialog(getActivity(), R.string.progress_history);
-		NetworkRequest.getHistory(this);
+		// Utility.showBusyDialog(getActivity(), R.string.progress_groups);
+		NetworkRequest.getGroups(this);
 	}
 
 	@Override
@@ -63,23 +66,29 @@ public class HistoryFragment extends ListFragment implements
 		super.onDetach();
 	}
 
-	/*
-	 * @Override public void onListItemClick(ListView l, View v, int position,
-	 * long id) { super.onListItemClick(l, v, position, id);
-	 * 
-	 * if (null != mListener) { // Notify the active callbacks interface (the
-	 * activity, if the // fragment is attached to one) that an item has been
-	 * selected. mListener
-	 * .onFragmentInteraction(DummyContent.ITEMS.get(position).id); } }
-	 */
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		Group group = mGroups.get(position);
+		GroupFragment fragment = GroupFragment.newInstance(group.mName,
+				group.mId, "0");
+		FragmentTransaction fragmentTransaction = getActivity()
+				.getSupportFragmentManager().beginTransaction();
+		fragmentTransaction.replace(R.id.content_frame, fragment);
+		// it will add screen to home screen when back is pressed
+		fragmentTransaction.addToBackStack(null);
+		fragmentTransaction.commit();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void onResponse(Object obj) {
 		// Utility.hideBusyDialog();
-		mHistory = (List<HistoryItem>) obj;
-		setListAdapter(new ArrayAdapter<HistoryItem>(getActivity(),
-				android.R.layout.simple_list_item_1, mHistory));
+		mGroups = (List<Group>) obj;
+		if (mGroups != null) {
+			setListAdapter(new ArrayAdapter<Group>(getActivity(),
+					android.R.layout.simple_list_item_1, mGroups));
+		}
 	}
 
 	@Override
@@ -88,7 +97,7 @@ public class HistoryFragment extends ListFragment implements
 		if (obj == null)
 			Utility.showErrorMessage(error, getActivity());
 		else {
-			Log.v(Constant.TAG, "No history record");
+			Log.v(Constant.TAG, "No groups");
 		}
 	}
 

@@ -1,4 +1,3 @@
-
 package com.footballpredictgame.activity;
 
 import android.app.Activity;
@@ -16,7 +15,8 @@ import com.footballpredictgame.network.NetworkRequestListener;
 import com.footballpredictgame.utiity.Constant;
 import com.footballpredictgame.utiity.Utility;
 
-public class RegisterActivity extends Activity implements NetworkRequestListener {
+public class RegisterActivity extends Activity implements
+		NetworkRequestListener {
 	private EditText mTxtMobile;
 	private EditText mTxtEmail;
 	private EditText mTxtPwd;
@@ -111,19 +111,19 @@ public class RegisterActivity extends Activity implements NetworkRequestListener
 	}
 
 	/**
-	 * TODO Modify comments for onResponse overloading method
-	 * Why are you overriding this method and what are you achieving here?
+	 * TODO Modify comments for onResponse overloading method Why are you
+	 * overriding this method and what are you achieving here?
 	 */
 	@Override
 	public void onResponse(Object obj) {
 		Utility.hideBusyDialog();
 		Log.v(Constant.TAG, "Register success");
-		Model.setCurrentUserId((Integer) obj);
+		Model.setCurrentUserId((String) obj);
 	}
 
 	/**
-	 * TODO Modify comments for onErrorResponse overloading method
-	 * Why are you overriding this method and what are you achieving here?
+	 * TODO Modify comments for onErrorResponse overloading method Why are you
+	 * overriding this method and what are you achieving here?
 	 */
 	@Override
 	public void onErrorResponse(VolleyError error, Object obj) {

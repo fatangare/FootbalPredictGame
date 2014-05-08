@@ -1,0 +1,56 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment"
+    android:id="@+id/groupdialogfragment" >
+
+  
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"   
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#fff"
+     android:padding="10dp"
+     >
+        
+    
+    <EditText
+      android:id="@+id/txtName"
+      android:layout_width="match_parent"            
+      android:layout_height="wrap_content"
+      android:textColor="#ffffff"
+      android:textColorHint="#DDDDDD"
+      android:background="#34B2E2"
+      android:padding="10dp"
+      android:hint="@string/name"
+      android:singleLine="true" 
+      android:layout_marginBottom="5dp"/>
+
+    <CheckBox
+        android:id="@+id/cbFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      	android:background="#34B2E2"  
+      	android:textColor="#fff"
+      	android:padding="10dp"
+        android:text="@string/setasfav"
+        android:layout_marginBottom="25dp" />
+
+    <Button
+        android:id="@+id/btnSaveGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/roundbutton"
+        android:textColor="#FFE5DD"
+        android:textColorHighlight="#FFFFFF"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/addgroup" />
+    
+</LinearLayout>
+    
+
+</FrameLayout>

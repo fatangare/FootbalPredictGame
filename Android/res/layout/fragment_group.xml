@@ -1,0 +1,103 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment" >
+
+  
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"   
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#1D3F62"
+    android:padding="10dp"
+     >
+     
+  <TextView
+        android:id="@+id/txtGroupName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:gravity="center"    
+    	android:textColor="#fff"
+    	android:background="#34B2E2"
+        android:text="10000"
+        android:padding="2dp"
+        android:layout_weight=".1"
+        android:layout_marginBottom="5dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+       
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"   
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:layout_weight=".001"
+    android:layout_marginBottom="10dp"
+     >
+    <ImageButton
+        android:id="@+id/btnFav"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".20"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"        
+        android:src="@android:drawable/btn_star_big_on"
+        android:scaleType="fitXY" />
+    
+    <ImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".20"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_edit"
+        android:scaleType="fitXY" />
+    
+    <ImageButton
+        android:id="@+id/btnAdd"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".20"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_add"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/txtRank"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".40"
+        android:layout_gravity="center"
+        android:gravity="center"        
+    	android:textColor="#fff"
+    	android:background="@android:drawable/btn_radio"
+        android:text="10000"
+        android:padding="2dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:scaleType="fitXY"/>
+   </LinearLayout>
+   
+  <ImageView
+    android:id="@+id/horzline"
+    android:src="@drawable/line"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.01"	
+    android:background="#fff"
+    android:layout_marginBottom="10dp"
+    />
+
+  <ListView
+      android:id="@+id/listGroupMembers"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight=".889" >
+  </ListView>
+  
+</LinearLayout>    
+
+</FrameLayout>

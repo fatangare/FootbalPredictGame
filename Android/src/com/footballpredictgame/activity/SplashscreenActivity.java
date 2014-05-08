@@ -79,7 +79,7 @@ public class SplashscreenActivity extends Activity implements
 
 	@Override
 	public void onResponse(Object obj) {
-		Model.setCurrentUserId((Integer) obj);
+		Model.setCurrentUserId((String) obj);
 		Intent i = new Intent(SplashscreenActivity.this, MainActivity.class);
 		startActivity(i);
 
